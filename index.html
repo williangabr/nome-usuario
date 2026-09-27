@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        div{
+            border-radius: 16px;
+            background-color: whitesmoke;
+            box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+            text-align: center;
+            width: 400px;
+            height: 156px;
+        }
+
+        input{
+            border: 1px solid black;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        button{
+            border: 1px solid black;
+            border-radius: 8px;
+        }
+
+        button:hover{
+            background-color: rgb(187, 187, 187);
+            color: white;
+        }
+
+        p{
+            font-size: 13px;
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Qual é o seu nome</h1>
+        <form>
+            <input type="text" placeholder="digita o seu nome..." id="nome-usuario">
+            <button type="button" id="confirmar">confirmar</button>
+        </form>
+        <p id="mensagem">Só o primeiro nome</p>
+    </div>
+
+    <script>
+        let nomeInput = document.getElementById("nome-usuario")
+        let confirmar = document.getElementById("confirmar")
+        let mensagem = document.getElementById("mensagem")
+
+        confirmar.addEventListener("click", function() {
+            let nome = nomeInput.value
+
+            nome = nome.charAt(0).toUpperCase() + nome.slice(1).toLowerCase()
+
+            mensagem.textContent = `Seja bem-vindo, ${nome}!`
+
+            console.log(nome)
+            console.log(typeof nome)
+        })
+    </script>
+</body>
+</html>
